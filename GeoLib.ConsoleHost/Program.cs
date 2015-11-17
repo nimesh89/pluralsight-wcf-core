@@ -30,7 +30,7 @@ namespace GeoLib.ConsoleHost
             var hostGeoManager = new ServiceHost(typeof(GeoManager));
             hostGeoManager.Open();
 
-            Console.WriteLine("Services started. Press [Enter] to");
+            Console.WriteLine("Services started. Press [Enter] to exit.");
             Console.ReadLine();
 
             hostGeoManager.Close();
