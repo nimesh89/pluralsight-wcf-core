@@ -21,6 +21,16 @@ namespace GeoLib.Proxies
     public class GeoClient : ClientBase<IGeoService>, IGeoService
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="GeoClient"/> class.
+        /// </summary>
+        /// <param name="endpointName">
+        /// The end point name.
+        /// </param>
+        public GeoClient(string endpointName) : base(endpointName)
+        {
+        }
+
+        /// <summary>
         /// The get zip info.
         /// </summary>
         /// <param name="zip">

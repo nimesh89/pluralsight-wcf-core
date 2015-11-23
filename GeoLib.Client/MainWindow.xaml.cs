@@ -40,7 +40,7 @@ namespace GeoLib.Client
                 return;
             }
 
-            var proxy = new GeoClient();
+            var proxy = new GeoClient("httpEP");
 
             var data = proxy.GetZipInfo(this.TxtZipCode.Text);
             if (data != null)
