@@ -18,6 +18,8 @@ namespace GeoLib.Client
     using System.Diagnostics;
     using System.Threading;
 
+    using GeoLib.Proxies;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -37,6 +39,17 @@ namespace GeoLib.Client
             {
                 return;
             }
+
+            var proxy = new GeoClient();
+
+            var data = proxy.GetZipInfo(this.TxtZipCode.Text);
+            if (data != null)
+            {
+                LblCity.Content = data.City;
+                LblState.Content = data.State;
+            }
+
+            proxy.Close();
         }
 
         private void BtnGetZipCodes_OnClick(object sender, RoutedEventArgs e)
