@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 
 namespace GeoLib.WindowsHost
 {
+    using System.ServiceModel;
     using System.Threading;
+
+    using GeoLib.Services;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ServiceHost hostGeoManager = null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +39,8 @@ namespace GeoLib.WindowsHost
 
         private void BtnStart_OnClick(object sender, RoutedEventArgs e)
         {
+            hostGeoManager = new ServiceHost(typeof(GeoManager));
+            hostGeoManager.Open();
 
             BtnStart.IsEnabled = false;
             BtnStop.IsEnabled = true;
@@ -41,6 +48,8 @@ namespace GeoLib.WindowsHost
 
         private void BtnStop_OnClick(object sender, RoutedEventArgs e)
         {
+            hostGeoManager.Close();
+
             BtnStart.IsEnabled = true;
             BtnStop.IsEnabled = false;
         }
