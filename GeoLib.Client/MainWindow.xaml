@@ -22,7 +22,7 @@
         <TextBox Height="36" HorizontalAlignment="Left" Margin="463,46,0,0" Name="TxtState" VerticalAlignment="Top"
                  Width="143" FontSize="20"></TextBox>
         <Button Content="Get Zip Codes" Height="39" HorizontalAlignment="Left" Margin="463,103,0,0"
-                Name="BtnGetZipCodes" FontSize="20" VerticalAlignment="Top" Width="143"></Button>
+                Name="BtnGetZipCodes" FontSize="20" VerticalAlignment="Top" Width="143" Click="BtnGetZipCodes_OnClick"></Button>
         <ListBox HorizontalAlignment="Left" Height="279" Margin="463,211,0,0" VerticalAlignment="Top"
                  Width="232" Name="LstZips" FontSize="16">
             <ListBox.ItemTemplate>

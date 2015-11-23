@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 
 namespace GeoLib.Client
 {
+    using System.Diagnostics;
+    using System.Threading;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -23,16 +26,30 @@ namespace GeoLib.Client
         public MainWindow()
         {
             InitializeComponent();
+
+            this.Title = "UI Running on Thread " + Thread.CurrentThread.ManagedThreadId + " | Process "
+                         + Process.GetCurrentProcess().Id.ToString();
         }
 
         private void BtnGetInfo_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(this.TxtZipCode.Text))
+            {
+                return;
+            }
+        }
+
+        private void BtnGetZipCodes_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.TxtState.Text))
+            {
+                return;
+            }
         }
 
         private void BtnMakeCall_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+        
         }
     }
 }
